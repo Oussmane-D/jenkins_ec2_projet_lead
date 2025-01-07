@@ -10,3 +10,4 @@ docker_env:
 entry_points:
   main:
     command: "python app/train.py"
+#ce fichier est un moyen de regrouper led projet sur mlflow

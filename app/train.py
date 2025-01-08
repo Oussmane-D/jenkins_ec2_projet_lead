@@ -140,7 +140,7 @@ if __name__ == "__main__":
         "Random_Forest__criterion": ["squared_error"]
     }
     artifact_path = "modeling_housing_market"
-    registered_model_name = "random_forest"
+    registered_model_name = "random_forest_v2"
 
     # Run the experiment
     run_experiment(experiment_name, data_url, param_grid, artifact_path, registered_model_name)

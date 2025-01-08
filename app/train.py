@@ -135,7 +135,7 @@ if __name__ == "__main__":
     experiment_name = "hyperparameter_tuning_2"
     data_url = "https://kub-bucket-ouss.s3.eu-west-3.amazonaws.com/NY_House_Dataset.csv"
     param_grid = {
-        "Random_Forest__n_estimators": list(range(90, 101, 10)),
+        "Random_Forest__n_estimators": list(range(90, 110, 10)),
         "Random_Forest__criterion": ["squared_error"]
     }
     artifact_path = "modeling_housing_market"

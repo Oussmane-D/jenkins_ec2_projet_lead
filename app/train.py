@@ -122,7 +122,7 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
     # Call mlflow autolog
     mlflow.sklearn.autolog()
 
-    with mlflow.start_run(experiment_id=experiment.experiment_id):
+    with mlflow.start_run(experiment_id=2):
         # Train model
         train_model(pipe, X_train, y_train, param_grid)
 

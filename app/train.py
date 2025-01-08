@@ -114,7 +114,6 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
     pipe = create_pipeline()
 
     # Set experiment's info 
-    experiment_name = "hyperparameter_tuning_new"
     mlflow.set_experiment(experiment_name)
 
     # Get our experiment info
@@ -123,7 +122,7 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
     # Call mlflow autolog
     mlflow.sklearn.autolog()
 
-    with mlflow.start_run(experiment_id=2):
+    with mlflow.start_run(experiment_id=experiment.experiment_id):
         # Train model
         train_model(pipe, X_train, y_train, param_grid)
 
@@ -133,7 +132,7 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
 # Entry point for the script
 if __name__ == "__main__":
     # Define experiment parameters
-    experiment_name = "hyperparameter_tuning_new"
+    experiment_name = "hyperparameter_tuning"
     data_url = "https://kub-bucket-ouss.s3.eu-west-3.amazonaws.com/NY_House_Dataset.csv"
     param_grid = {
         "Random_Forest__n_estimators": list(range(90, 110, 10)),

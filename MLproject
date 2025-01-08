@@ -1,4 +1,4 @@
-name: NY-house-dataset
+name: NY_house_dataset
 docker_env:
   image: jedha/sample-mlflow-server
   environment: [

@@ -1,4 +1,4 @@
-name: californian_housing_market
+name: NY-house-dataset
 docker_env:
   image: jedha/sample-mlflow-server
   environment: [

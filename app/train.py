@@ -31,8 +31,8 @@ def preprocess_data(df):
     Returns:
         tuple: Split data (X_train, X_test, y_train, y_test).
     """
-    X = df.iloc[:, :-1]
-    y = df.iloc[:, -1]
+    X = df.iloc[:, :1]
+    y = df.iloc[:, 1:]
     return train_test_split(X, y, test_size=0.2)
 
 # Create the pipeline
@@ -133,7 +133,7 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
 if __name__ == "__main__":
     # Define experiment parameters
     experiment_name = "hyperparameter_tuning"
-    data_url = "https://julie-2-next-resources.s3.eu-west-3.amazonaws.com/full-stack-full-time/linear-regression-ft/californian-housing-market-ft/california_housing_market.csv"
+    data_url = "https://kub-bucket-ouss.s3.eu-west-3.amazonaws.com/NY_House_Dataset.csv"
     param_grid = {
         "Random_Forest__n_estimators": list(range(90, 101, 10)),
         "Random_Forest__criterion": ["squared_error"]

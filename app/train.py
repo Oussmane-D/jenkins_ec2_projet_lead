@@ -122,9 +122,9 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
     # Call mlflow autolog
     mlflow.sklearn.autolog()
 
-    #with mlflow.start_run(experiment_id=experiment.experiment_id):
+    with mlflow.start_run(experiment_id=experiment.experiment_id):
         # Train model
-        #train_model(pipe, X_train, y_train, param_grid)
+        train_model(pipe, X_train, y_train, param_grid)
 
     # Print timing
     print(f"...Training Done! --- Total training time: {time.time() - start_time} seconds")
@@ -132,7 +132,7 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
 # Entry point for the script
 if __name__ == "__main__":
     # Define experiment parameters
-    experiment_name = "hyperparameter_tuning"
+    experiment_name = "hyperparameter_tuning_2"
     data_url = "https://kub-bucket-ouss.s3.eu-west-3.amazonaws.com/NY_House_Dataset.csv"
     param_grid = {
         "Random_Forest__n_estimators": list(range(90, 101, 10)),

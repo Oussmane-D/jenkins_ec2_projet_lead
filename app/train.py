@@ -125,7 +125,19 @@ def run_experiment(experiment_name, data_url, param_grid, artifact_path, registe
 
     with mlflow.start_run(experiment_id=experiment.experiment_id):
         # Train model
-        train_model(pipe, X_train, y_train, param_grid)
+        model = train_model(pipe, X_train, y_train, param_grid)
+
+           # 2. Loguer le modèle et les métriques explicitement
+        log_metrics_and_model(
+            model=model,
+            X_train=X_train,
+            y_train=y_train,
+            X_test=X_test,
+            y_test=y_test,
+            artifact_path=artifact_path,
+            registered_model_name=registered_model_name
+        )
+
 
     # Print timing
     print(f"...Training Done! --- Total training time: {time.time() - start_time} seconds")

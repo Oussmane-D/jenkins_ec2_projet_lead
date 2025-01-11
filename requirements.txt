@@ -1,10 +1,10 @@
 mlflow
 scikit-learn
 pandas
-numpy
 boto3
 pytest
 evidently
+numpy
 
 
 

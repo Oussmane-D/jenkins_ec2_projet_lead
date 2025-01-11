@@ -75,8 +75,8 @@ def test_data_drift():
 
     # 6. Vérifier le statut global (vérification simplifiée)
     #    - 'dataset_drift' = True si Evidently détecte un drift global
-    drift_metric = results["metrics"][0]["result"]["dataset_drift"]
-    has_drift = drift_metric["dataset_drift"]
+   # Récupérer directement la valeur booléenne
+    has_drift = results["metrics"][0]["result"]["dataset_drift"]
 
     # 7. Définir la logique du test : on échoue si un drift est détecté
     assert not has_drift, "Data drift détecté selon Evidently !"

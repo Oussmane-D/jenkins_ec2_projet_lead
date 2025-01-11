@@ -31,9 +31,9 @@ def preprocess_data(df):
     Returns:
         tuple: Split data (X_train, X_test, y_train, y_test).
     """
-    X = df.iloc[:, :1]
-    y = df.iloc[:, 1:]
-    return train_test_split(X, y, test_size=0.2)
+    y = df["PRICE"]
+    X = df.drop("PRICE", axis=1)
+    return train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Create the pipeline
 def create_pipeline():
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     experiment_name = "hyperparameter_tuning_2"
     data_url = "https://kub-bucket-ouss.s3.eu-west-3.amazonaws.com/NY_House_Dataset.csv"
     param_grid = {
-        "Random_Forest__n_estimators": list(range(90, 101, 10)),
+        "Random_Forest__n_estimators": list(range(50, 101, 10)),
         "Random_Forest__criterion": ["squared_error"]
     }
     artifact_path = "modeling_housing_market"

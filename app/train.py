@@ -70,7 +70,7 @@ def train_model(pipe, X_train, y_train, param_grid, cv=2, n_jobs=-1, verbose=3):
     return model
 
 # Log metrics and model to MLflow
-def log_metrics_and_model(model, X_train, y_train, X_test, y_test, artifact_path, registered_model_name):
+def log_metrics_and_model(model, X_train, y_train, X_test, y_test, artifact_path, registered_model_name=None):
     """
     Log training and test metrics, and the model to MLflow.
 
@@ -88,7 +88,7 @@ def log_metrics_and_model(model, X_train, y_train, X_test, y_test, artifact_path
     mlflow.sklearn.log_model(
         sk_model=model,
         artifact_path=artifact_path,
-        registered_model_name=registered_model_name
+        #registered_model_name=registered_model_name
     )
 
 # Main function to execute the workflow
